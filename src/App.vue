@@ -1,60 +1,74 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <VApp>
+        <div class="container">
+            <VTags
+                :items="tags"
+                alignment="left"
+            />
+        </div>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+        <div class="container">
+            <VTags
+                :items="tags"
+                alignment="space"
+            />
+        </div>
 
-      <v-spacer></v-spacer>
+        <div class="container container--small">
+            <VTags
+                :items="tags"
+                alignment="left"
+            />
+        </div>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+        <div class="container container--small">
+            <VTags
+                :items="tags"
+                alignment="space"
+            />
+        </div>
+    </VApp>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import VTags from '@/components/VTags.vue';
 
 export default {
-  name: 'App',
+    name: 'App',
 
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+    components: {
+        VTags,
+    },
+    
+    data() {
+        return {
+            tags: [
+                {
+                    id: 1,
+                    icon: 'mdi-star',
+                    text: '4,3',
+                },
+                {
+                    id: 2,
+                    text: 'Фридландские ворота',
+                },
+                {
+                    id: 3,
+                    text: '1,2 км от вас',
+                },
+            ],
+        };
+    },
 };
 </script>
+
+<style lang="scss" scoped>
+    .container {
+        width: 100%;
+        padding: 32px 16px;
+
+        &--small {
+            width: 50%;
+        }
+    }
+</style>
