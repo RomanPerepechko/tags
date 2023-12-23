@@ -90,10 +90,12 @@ export default {
 
             this.items.forEach((item, index) => {
                 if (index !== this.items.length - 1) {
-                    result.push({...item, component: 'VTag'});
-                    result.push({ component: 'VDivider', id: item.id });
+                    const id = item.id ? item.id : Math.floor(Math.random() * 100000);
+
+                    result.push({ ...item, component: 'VTag', id: id });
+                    result.push({ component: 'VDivider', id: id });
                 } else {
-                    result.push({...item, component: 'VTag'});
+                    result.push({ ...item, component: 'VTag' });
                 }
             });
 
