@@ -38,7 +38,7 @@ export default {
         display: flex;
         column-gap: 4px;
         white-space: nowrap;
-        opacity: 1;
+        opacity: 0;
         transition: opacity .3s ease;
     }
 </style>
